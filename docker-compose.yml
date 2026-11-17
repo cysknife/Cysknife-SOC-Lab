@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  # SIEM Server (Splunk or Wazuh)
+  # SIEM Server (Splunk)
   siem-server:
     image: splunk/splunk:latest
     container_name: cysknife-siem
@@ -44,23 +44,11 @@ services:
       - soc-lab-network
     restart: unless-stopped
 
-  # Endpoint Monitoring (Wazuh Agent Example)
-  endpoint-agent:
-    image: wazuh/wazuh-agent:4.5.5
-    container_name: cysknife-endpoint
-    environment:
-      - WAZUH_MANAGER_IP=siem-server
-    networks:
-      - soc-lab-network
-    restart: unless-stopped
-
-  # Packet Capture (Wireshark/TShark Container)
+  # Packet Capture Container (for network analysis labs)
   packet-capture:
     image: alpine:latest
     container_name: cysknife-pcap
-    install_packages:
-      - tshark
-      - tcpdump
+    command: sleep infinity
     volumes:
       - ./data/pcaps:/pcaps
     networks:
