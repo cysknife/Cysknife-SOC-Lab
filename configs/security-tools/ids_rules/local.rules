@@ -1,0 +1,5 @@
+# Local custom IDS rules for Cysknife SOC Lab
+# Add custom detection signatures below.
+
+# Alert on suspicious SSH connection attempts
+alert tcp any any -> any 22 (msg:"Potential SSH brute force attempt"; flow:established,to_server; content:"Failed password"; nocase; classtype:attempted-admin; sid:1000001; rev:1;)

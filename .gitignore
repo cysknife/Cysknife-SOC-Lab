@@ -1,0 +1,22 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Local data folders (logs, pcaps, splunk local data)
+data/logs/*
+data/pcaps/*
+!data/logs/.gitkeep
+!data/pcaps/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE settings
+.vscode/
+.idea/

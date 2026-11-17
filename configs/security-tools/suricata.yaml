@@ -1,0 +1,14 @@
+# Suricata configuration for Cysknife Lab network monitoring
+%YAML 1.1
+---
+vars:
+  address-groups:
+    HOME_NET: "[192.168.0.0/16, 10.0.0.0/8, 172.16.0.0/12]"
+    EXTERNAL_NET: "any"
+
+default-log-dir: /var/lib/suricata/
+default-rule-dir: /etc/suricata/rules/
+
+af-packet:
+  - interface: eth0
+    cluster-id: 99

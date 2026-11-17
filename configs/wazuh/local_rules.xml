@@ -1,0 +1,17 @@
+<!-- Custom local rules for Cysknife SOC Lab -->
+<group name="local_syslog,">
+  <rule id="100001" level="5">
+    <field>_event_source>syslog</field>
+    <description>General syslog message.</description>
+  </rule>
+
+  <rule id="100002" level="10">
+    <field>event_type>brute_force</field>
+    <description>Potential brute force attack detected.</description>
+  </rule>
+
+  <rule id="100003" level="12">
+    <field>event_type>sql_injection</field>
+    <description>Potential SQL Injection attempt detected.</description>
+  </rule>
+</group>
